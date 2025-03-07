@@ -53,5 +53,6 @@ public enum Major {
     PSYCHOLOGY,
     COMPUTER_SCIENCE,
     INFORMATION_TECHNOLOGY,
-    PHARMACY
+    PHARMACY,
+    OTHER
 }

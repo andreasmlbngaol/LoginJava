@@ -6,5 +6,6 @@ public enum Religion {
     ISLAM,
     BUDDHISM,
     HINDU,
-    CONFUCIANISM
+    CONFUCIANISM,
+    UNDEFINED
 }

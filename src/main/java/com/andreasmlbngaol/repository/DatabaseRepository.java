@@ -38,6 +38,22 @@ public class DatabaseRepository {
         );
     }
 
+    public StudentEntity getStudentByStudentId(String studentId) {
+        return Database.executeTransaction(session ->
+                session.createQuery("from StudentEntity where studentId = :studentId", StudentEntity.class)
+                        .setParameter("studentId", studentId)
+                        .uniqueResult()
+        );
+    }
+
+    public TeacherEntity getTeacherByTeacherId(String teacherId) {
+        return Database.executeTransaction(session ->
+                session.createQuery("from TeacherEntity where teacherId = :teacherId", TeacherEntity.class)
+                        .setParameter("teacherId", teacherId)
+                        .uniqueResult()
+        );
+    }
+
     public void insertStudent(StudentEntity newStudent) {
         Database.executeTransactionVoid(session ->
                 session.persist(newStudent)

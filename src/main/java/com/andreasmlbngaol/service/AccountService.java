@@ -44,4 +44,8 @@ public class AccountService {
 
         repo.insertTeacher(newTeacher);
     }
+
+    public static void logout() {
+        currentUser = null;
+    }
 }

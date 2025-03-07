@@ -3,13 +3,13 @@ package com.andreasmlbngaol.service;
 import com.andreasmlbngaol.dto.User;
 import com.andreasmlbngaol.entity.StudentEntity;
 import com.andreasmlbngaol.entity.TeacherEntity;
-import com.andreasmlbngaol.repository.Repository;
-import com.andreasmlbngaol.util.PasswordManager;
+import com.andreasmlbngaol.repository.DatabaseRepository;
+import com.andreasmlbngaol.utils.PasswordManager;
 
 public class AccountService {
-    public static User currenUser = null;
+    public static User currentUser = null;
 
-    public static boolean login(String email, String password, Repository repo) {
+    public static boolean login(DatabaseRepository repo, String email, String password) {
         var user = repo.getUserByEmail(email);
         if (user == null) { return false; }
 
@@ -19,15 +19,14 @@ public class AccountService {
         );
 
         if(isLoginSuccess) {
-            currenUser = UserConverter.toDTO(user);
+            currentUser = UserConverter.toDTO(user);
         }
 
         return isLoginSuccess;
     }
 
-    public static void registerStudent(StudentEntity newStudent, Repository repo) {
+    public static void registerStudent(DatabaseRepository repo, StudentEntity newStudent) {
         var user = repo.getUserByEmail(newStudent.getEmail());
-
         if (user != null) {
             System.err.println("Error: Email already in use: " + newStudent.getEmail());
             return;
@@ -36,7 +35,7 @@ public class AccountService {
         repo.insertStudent(newStudent);
     }
 
-    public static void registerTeacher(TeacherEntity newTeacher, Repository repo) {
+    public static void registerTeacher(DatabaseRepository repo, TeacherEntity newTeacher) {
         var user = repo.getUserByEmail(newTeacher.getEmail());
         if (user != null) {
             System.err.println("Error: Email already in use: " + newTeacher.getEmail());

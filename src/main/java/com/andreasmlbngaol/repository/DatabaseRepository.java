@@ -1,7 +1,6 @@
 package com.andreasmlbngaol.repository;
 
 import com.andreasmlbngaol.db.Database;
-import com.andreasmlbngaol.dto.Student;
 import com.andreasmlbngaol.entity.StudentEntity;
 import com.andreasmlbngaol.entity.TeacherEntity;
 import com.andreasmlbngaol.entity.UserEntity;
@@ -9,7 +8,7 @@ import com.andreasmlbngaol.enums.Role;
 
 import java.util.List;
 
-public class Repository {
+public class DatabaseRepository {
     public List<UserEntity> getAllUsers() {
         return Database.executeTransaction(session ->
                 session.createQuery("from UserEntity", UserEntity.class)

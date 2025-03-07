@@ -1,25 +1,40 @@
 package com.andreasmlbngaol;
 
 import com.andreasmlbngaol.db.Database;
-import com.andreasmlbngaol.dto.Student;
-import com.andreasmlbngaol.dto.Teacher;
-import com.andreasmlbngaol.dto.User;
 import com.andreasmlbngaol.entity.StudentEntity;
-import com.andreasmlbngaol.entity.TeacherEntity;
-import com.andreasmlbngaol.entity.UserEntity;
-import com.andreasmlbngaol.enums.*;
-import com.andreasmlbngaol.repository.Repository;
+import com.andreasmlbngaol.enums.Gender;
+import com.andreasmlbngaol.enums.Major;
+import com.andreasmlbngaol.enums.Religion;
+import com.andreasmlbngaol.repository.DatabaseRepository;
 import com.andreasmlbngaol.service.AccountService;
-import com.andreasmlbngaol.service.UserConverter;
-import com.andreasmlbngaol.util.PasswordManager;
 
 public class Main {
-    private static final Repository repo = new Repository();
+    private static final DatabaseRepository repo = new DatabaseRepository();
 
     public static void main(String[] args) {
         Database.init();
 
+        var newStudent = new StudentEntity(
+                "lgandre45@gmail.com",
+                "password123",
+                "Andreas",
+                "Lumban Gaol",
+                Gender.MALE,
+                Religion.PROTESTANT,
+                "221401067",
+                Major.COMPUTER_SCIENCE,
+                0.0
+        );
 
+        AccountService.registerStudent(repo, newStudent);
+
+        var isLoginSuccessful = AccountService.login(
+                repo,
+                "lgandre45@gmail.com",
+                "password123"
+        );
+
+        System.out.printf("Login successful: %s\n", isLoginSuccessful);
 
         Database.shutdown();
     }

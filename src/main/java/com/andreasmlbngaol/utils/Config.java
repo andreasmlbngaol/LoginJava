@@ -1,4 +1,4 @@
-package com.andreasmlbngaol.util;
+package com.andreasmlbngaol.utils;
 
 import java.io.IOException;
 import java.io.InputStream;

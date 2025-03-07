@@ -13,14 +13,6 @@ public class User {
     protected final Gender gender;
     protected final Religion religion;
 
-    @Override
-    public String toString() {
-        return String.format(
-                "User(id=%d, email=\"%s\", firstName=\"%s\", lastName=\"%s\", role=\"%s\", gender=\"%s\", religion=\"%s\")",
-                id, email, firstName, lastName, role, gender, religion
-        );
-    }
-
     public User(long id, String email, String firstName, String lastName, Role role, Gender gender, Religion religion) {
         this.id = id;
         this.email = email;
@@ -63,4 +55,11 @@ public class User {
         return religion;
     }
 
+    @Override
+    public String toString() {
+        return String.format(
+                "User(id=%d, email=\"%s\", firstName=\"%s\", lastName=\"%s\", role=\"%s\", gender=\"%s\", religion=\"%s\")",
+                id, email, firstName, lastName, role, gender, religion
+        );
+    }
 }

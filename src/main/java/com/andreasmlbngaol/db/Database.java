@@ -1,6 +1,6 @@
 package com.andreasmlbngaol.db;
 
-import com.andreasmlbngaol.util.Config;
+import com.andreasmlbngaol.utils.Config;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -35,7 +35,6 @@ public class Database {
 
             configuration.setProperties(settings);
 
-            // Tambahkan kelas entitas yang dikelola oleh Hibernate
             configuration.addAnnotatedClass(com.andreasmlbngaol.entity.UserEntity.class);
             configuration.addAnnotatedClass(com.andreasmlbngaol.entity.StudentEntity.class);
             configuration.addAnnotatedClass(com.andreasmlbngaol.entity.TeacherEntity.class);
@@ -47,12 +46,8 @@ public class Database {
         }
     }
 
-    public static SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
-
     public static void shutdown() {
-        getSessionFactory().close();
+        sessionFactory.close();
     }
 
     public static <R> R executeTransaction(Function<Session, R> action) {

@@ -3,7 +3,7 @@ package com.andreasmlbngaol.entity;
 import com.andreasmlbngaol.enums.Gender;
 import com.andreasmlbngaol.enums.Religion;
 import com.andreasmlbngaol.enums.Role;
-import com.andreasmlbngaol.util.PasswordManager;
+import com.andreasmlbngaol.utils.PasswordManager;
 import jakarta.persistence.*;
 
 @Entity

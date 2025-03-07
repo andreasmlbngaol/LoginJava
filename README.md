@@ -4,7 +4,7 @@ Program ini menggunakan Hibernate sebagai ORM dan PostgreSQL sebagai database.
 Sebelum menjalankan program, Anda harus melakukan konfigurasi sebagai berikut:
 
 ## 1. Mengubah Nama File Konfigurasi
-Di dalam folder konfigurasi, terdapat file `hibernate.example.properties`. Ubah nama file tersebut menjadi:
+Di dalam folder resources, terdapat file `hibernate.example.properties`. Ubah nama file tersebut menjadi:
 
 ```
 hibernate.properties

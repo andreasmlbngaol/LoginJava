@@ -8,7 +8,11 @@ import com.andreasmlbngaol.enums.Role;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class DatabaseRepository {
+
+    public DatabaseRepository() {}
+
     public List<UserEntity> getAllUsers() {
         return Database.executeTransaction(session ->
                 session.createQuery("from UserEntity", UserEntity.class)

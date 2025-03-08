@@ -7,7 +7,7 @@ import com.andreasmlbngaol.enums.Role;
 
 public class Student extends User {
     private final String studentId;
-    private final String major;
+    private final Major major;
     private final double gpa;
 
     public Student(
@@ -24,7 +24,7 @@ public class Student extends User {
     ) {
         super(userId, email, firstName, lastname, role, gender, religion);
         this.studentId = studentId;
-        this.major = major.toString();
+        this.major = major;
         this.gpa = gpa;
     }
 
@@ -32,7 +32,7 @@ public class Student extends User {
         return studentId;
     }
 
-    public String getMajor() {
+    public Major getMajor() {
         return major;
     }
 

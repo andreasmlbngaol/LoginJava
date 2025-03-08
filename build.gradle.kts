@@ -44,21 +44,37 @@ dependencies {
 
     // Compose for Desktop
     implementation(compose.desktop.currentOs)
-    implementation("org.jetbrains.compose.ui:ui-desktop:1.7.3")
-    implementation("org.jetbrains.compose.foundation:foundation-desktop:1.7.3")
-//    implementation("org.jetbrains.compose.material:material-desktop:1.7.3")
+    val composeVersion = "1.7.3"
+    implementation("org.jetbrains.compose.ui:ui:$composeVersion")
+    implementation("org.jetbrains.compose.foundation:foundation:$composeVersion")
+//    implementation("org.jetbrains.compose.material:material-desktop:$composeVersion")
 
     // Desktop-specific dependencies
-    implementation("org.jetbrains.compose.desktop:desktop:1.7.3")
+    implementation("org.jetbrains.compose.desktop:desktop:$composeVersion")
 
     // Icons dan Material3
-    implementation("org.jetbrains.compose.material3:material3-desktop:1.7.3")
-    implementation("org.jetbrains.compose.material:material-icons-core-desktop:1.7.3")
-    implementation("org.jetbrains.compose.material:material-icons-extended-desktop:1.7.3")
+    implementation("org.jetbrains.compose.material3:material3:$composeVersion")
+    implementation("org.jetbrains.compose.material:material-icons-core:$composeVersion")
+    implementation("org.jetbrains.compose.material:material-icons-extended:$composeVersion")
 
     // NavHost
-    implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.0-alpha10")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+    implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.0-alpha12")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
+
+    // ViewModel
+    implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0-alpha03")
+
+    // ViewModelScope
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.10.1")
+
+    // Koin
+    api("io.insert-koin:koin-core:4.1.0-Beta5")
+    implementation("io.insert-koin:koin-compose:4.1.0-Beta5")
+    implementation("io.insert-koin:koin-compose-viewmodel:4.1.0-Beta5")
+
+
+//    implementation("org.jetbrains.skiko:skiko-awt-runtime-windows-x64:0.9.2") // Untuk runtime JVM
+
 
     // Integrasi dengan Java
     implementation("org.jetbrains.kotlin:kotlin-stdlib")

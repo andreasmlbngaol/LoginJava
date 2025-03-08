@@ -7,6 +7,8 @@ fun String.enumToString(): String {
         .lowercase()
         .split("_").joinToString(" ") {
             it
-                .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+                .replaceFirstChar { char ->
+                    if (char.isLowerCase()) char.titlecase(Locale.getDefault()) else char.toString()
+                }
         }
 }

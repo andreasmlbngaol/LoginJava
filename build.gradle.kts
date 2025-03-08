@@ -1,10 +1,11 @@
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+
 plugins {
     id("java")
     kotlin("jvm")
     id("org.jetbrains.kotlin.plugin.compose")
     id("org.jetbrains.compose")
     kotlin("plugin.serialization") version "2.0.21"
-    application
 }
 
 group = "com.andreasmlbngaol"
@@ -81,10 +82,22 @@ dependencies {
 
 }
 
-application {
-    mainClass.set("com.andreasmlbngaol.MainAppKt")
+compose.desktop {
+    application {
+        mainClass = "com.andreasmlbngaol.MainAppKt" // Sesuaikan dengan main class kamu
+        nativeDistributions {
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb) // Installer untuk macOS, Windows, Linux
+            packageName = "LoginJavaCompose"
+            packageVersion = "1.0.0"
+        }
+    }
 }
+
+//application {
+//    mainClass.set("com.andreasmlbngaol.MainAppKt")
+//}
 
 tasks.test {
     useJUnitPlatform()
 }
+
